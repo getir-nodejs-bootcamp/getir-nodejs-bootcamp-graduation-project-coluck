@@ -10,7 +10,8 @@ MongoClient.connect(process.env.MONGO_URL)
   .then(client => {
     console.log("Connected to mongoDB.");
     app.locals.collection = client.db('getir-case-study').collection('records');
-    app.listen(3000, () => console.log('Express server started.'));
+    app.listen(process.env.PORT || 3000,
+      () => console.log('Express server started.'));
   })
   .catch(error => console.log(` MongoDB connection error:\n ${error}`));
 
