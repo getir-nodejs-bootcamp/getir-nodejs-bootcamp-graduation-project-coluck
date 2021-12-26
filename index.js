@@ -4,6 +4,8 @@ const cors = require("cors");
 const morgan = require("morgan");
 const { MongoClient } = require("mongodb");
 
+const { bodyValidation } = require("./utils");
+
 MongoClient.connect(process.env.MONGO_URL)
   .then(client => {
     console.log("Connected to mongoDB.");
@@ -20,5 +22,7 @@ app.use(morgan("tiny"));
 app.use(express.json());
 
 app.post('/', (req, res) => {
-  // TODO: implement
+  const { value, error } = bodyValidation.validate(req.body);
+  if (error)
+    return res.status(400).json(error.details[0].message)
 });
