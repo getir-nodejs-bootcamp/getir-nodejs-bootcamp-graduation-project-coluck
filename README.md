@@ -1,6 +1,8 @@
 # Graduation Project - Getir 
 ### Oguz Colak
 
+[heroku-demo](https://getir-coluck.herokuapp.com/).
+https://getir-coluck.herokuapp.com/
 In this project, there is a single endpoint. Therefore, I did not create a complex project file structure.
 
 ### Installation
